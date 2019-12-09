@@ -5,25 +5,26 @@ import { connect } from 'react-redux';
 const ArticleList = ({ dispatch, articleList }) => {
   return(
     <div>
-      <h3>Articles</h3>
+      <h3>Search Results</h3>
       <br/>
-      {Object.keys(articleList).map(articleId => {
-        let article = articleList[articleId];
-        return <li key={articleId}>
-          <em>{article.title}</em> by {article.author}</li>;
+      {Object.keys(searchResults).map(resultId => {
+        let result = searchResults[resultId];
+        return <li key={resultId}>
+          {/* After lunch map this a result component! */}
+          <em>{result.title}</em> by {result.author}</li>;
       })}
     </div>
   );
 };
 
 ArticleList.propTypes = {
-  articleList: PropTypes.object,
+  searchResults: PropTypes.array,
   dispatch: PropTypes.func
 };
 
 const mapStateToProps = state => {
   return {
-    articleList: state.papersById
+    searchResults: state.searchResults
   };
 };
 
