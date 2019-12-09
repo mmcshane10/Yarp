@@ -3,10 +3,13 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const ArticleList = ({ dispatch, searchResults }) => {
+  let searchHeader = '';
+  if (searchResults.length > 0){
+    searchHeader = <div><h3>Search Results</h3><br/></div>
+  } 
   return(
     <div>
-      <h3>Search Results</h3>
-      <br/>
+      {searchHeader}
       {Object.keys(searchResults).map(resultId => {
         let result = searchResults[resultId];
         return <li key={resultId}>
