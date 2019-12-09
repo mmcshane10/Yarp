@@ -3,11 +3,12 @@ const { initialState, types } = constants;
 
 const searchResultsReducer = (state = initialState.searchResults, action) => {
   switch (action.type) {
+    // case types.REQUEST_ARTICLES:
+    //   return {
+    //     ...state
+    //   }
     case types.RECEIVE_SEARCH_RESULTS:
-      return {
-        ...state,
-        searchResults: action.searchResults
-      }
+      return action.searchResults;
     default:
       return state;
   }

@@ -1,8 +1,10 @@
-import constants from './../constants';
-const { initialState, types } = constants;
+import { combineReducers } from 'redux';
+import searchResultsReducer from './searchResultsReducer';
+import articleListReducer from './articleListReducer';
 
-const rootReducer = (state = initialState, action) => {
-  return state;
-};
+const rootReducer = combineReducers({
+  searchResults: searchResultsReducer,
+  papersById: articleListReducer
+});
 
 export default rootReducer;

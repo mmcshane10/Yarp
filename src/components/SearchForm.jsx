@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { fetchSearchResults } from './../actions';
 
 function SearchForm({ dispatch }){
   let input;
@@ -11,7 +12,7 @@ function SearchForm({ dispatch }){
         if (!input.value.trim()) {
           return;
         }
-        // dispatch()
+        dispatch(fetchSearchResults(input.value.trim()));
         console.log('Searched: ' + input.value.trim());
         input.value = '';
       }}>

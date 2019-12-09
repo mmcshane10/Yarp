@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const ArticleList = ({ dispatch, articleList }) => {
+const ArticleList = ({ dispatch, searchResults }) => {
   return(
     <div>
       <h3>Search Results</h3>
@@ -11,7 +11,7 @@ const ArticleList = ({ dispatch, articleList }) => {
         let result = searchResults[resultId];
         return <li key={resultId}>
           {/* After lunch map this a result component! */}
-          <em>{result.title}</em> by {result.author}</li>;
+          <a target="_blank" href={result.downloadUrl}><em>{result.title}</em></a> by {result.author}</li>;
       })}
     </div>
   );
@@ -23,8 +23,12 @@ ArticleList.propTypes = {
 };
 
 const mapStateToProps = state => {
+  let resultsArray = [];
+  if (state.searchResults.length > 0) {
+    resultsArray = state.searchResults;
+  }
   return {
-    searchResults: state.searchResults
+    searchResults: resultsArray
   };
 };
 
