@@ -11,7 +11,7 @@ function App(){
     padding: '50px'
   }
   return(
-    <div className='container'>
+    <div style={colStyle}>
       <Header/>
       <div className='row'>
         <div style={colStyle} className='col s6'>
