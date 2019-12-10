@@ -9,7 +9,7 @@ function App(){
 
   let colStyle = {
     padding: '50px'
-  }
+  };
   return(
     <div style={colStyle}>
       <Header/>

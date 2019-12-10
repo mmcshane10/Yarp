@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { selectArticle } from './../actions';
 
 const ArticleList = ({ dispatch, articleList, currentPaperId }) => {
-  const currentPaper = articleList[currentPaperId]
+  const currentPaper = articleList[currentPaperId];
   return(
     <div>
       <h3>My Articles</h3>
@@ -14,16 +14,16 @@ const ArticleList = ({ dispatch, articleList, currentPaperId }) => {
         let articleInformation = '';
         if (article.coreId === currentPaperId) {
           articleInformation =
-          <div>
-            <p>{article.year}</p>
-            <p>{article.description}</p>
-            <a target="_blank" href={article.downloadUrl}>See article</a>
-          </div>;
+            <div>
+              <p>{article.year}</p>
+              <p>{article.description}</p>
+              <a target="_blank" href={article.downloadUrl}>See article</a>
+            </div>;
         }
         return <li 
           key={articleId} 
-          onClick={() => {dispatch(selectArticle(article.coreId))}}>
-        <em>{article.title}</em> by {article.author}{articleInformation}</li>;
+          onClick={() => {dispatch(selectArticle(article.coreId));}}>
+          <em>{article.title}</em> by {article.author}{articleInformation}</li>;
       })}
     </div>
   );
