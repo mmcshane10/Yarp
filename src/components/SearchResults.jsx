@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { selectArticle } from './../actions';
+import { selectArticle, saveArticle } from './../actions';
 
 const ArticleList = ({ dispatch, searchResults, currentPaperId }) => {
   let searchHeader = '';
@@ -20,6 +20,7 @@ const ArticleList = ({ dispatch, searchResults, currentPaperId }) => {
               <p>{result.year}</p>
               <p>{result.description}</p>
               <a target="_blank" href={result.downloadUrl}>See article</a>
+              <p onClick={() => {dispatch(saveArticle(result))}}>Add To My Articles</p>
             </div>;
         }
         return <li 

@@ -46,3 +46,8 @@ export const selectArticle = selectedArticle => ({
   type: types.SELECT_ARTICLE,
   selectedArticle
 });
+
+export const saveArticle = article => ({
+  type: types.SAVE_ARTICLE,
+  article
+});
