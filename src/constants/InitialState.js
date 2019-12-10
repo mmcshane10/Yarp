@@ -17,5 +17,5 @@ export const initialState = {
       author: 'Vojak, Bruce A.'
     }
   },
-  searchResults: []
+  searchResults: {}
 };

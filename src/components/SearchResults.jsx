@@ -21,17 +21,17 @@ const ArticleList = ({ dispatch, searchResults }) => {
 };
 
 ArticleList.propTypes = {
-  searchResults: PropTypes.array,
+  searchResults: PropTypes.object,
   dispatch: PropTypes.func
 };
 
 const mapStateToProps = state => {
-  let resultsArray = [];
-  if (state.searchResults.length > 0) {
-    resultsArray = state.searchResults;
+  let results = {};
+  if (state.searchResults !== null) {
+    results = state.searchResults;
   }
   return {
-    searchResults: resultsArray
+    searchResults: results
   };
 };
 

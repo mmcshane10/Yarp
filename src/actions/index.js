@@ -10,16 +10,19 @@ export function fetchSearchResults(search) {
     ).then(function (json) {
       console.log(json);
       if (json.data.length > 0) {
-        const searchResults = [];
+        let searchResults = {};
         for (let i = 0; i < json.data.length; i++) {
-          const newArticle = {
+          let newArticle = {
             coreId: json.data[i].id,
             author: json.data[i].authors[0],
             title: json.data[i].title,
             year: json.data[i].year,
-            downloadUrl: json.data[i].downloadUrl
+            downloadUrl: json.data[i].downloadUrl,
+            description: json.data[i].description
           };
-          searchResults.push(newArticle);
+          searchResults = Object.assign({}, searchResults, {
+            [newArticle.coreId]: newArticle
+          });
         }
         dispatch(receiveSearchResults(searchResults));
       } else {
@@ -37,4 +40,9 @@ export const requestArticles = search => ({
 export const receiveSearchResults = searchResults => ({
   type: types.RECEIVE_SEARCH_RESULTS,
   searchResults
+});
+
+export const selectArticle = selectedArticle => ({
+  type: types.SELECT_ARTICLE,
+  selectedArticle
 });
